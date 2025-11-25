@@ -6,30 +6,18 @@ import { Check } from 'lucide-react';
 
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.split('');
 
-function shuffleArray<T>(array: T[]): T[] {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-}
-
 export default function AvatarGrid() {
-  const [shuffledChars, setShuffledChars] = useState<string[]>([]);
   const [randomColors, setRandomColors] = useState<string[]>([]);
   const { toast } = useToast();
 
   useEffect(() => {
     // This check ensures this code only runs on the client
-    setShuffledChars(shuffleArray(characters));
     const colors = characters.map(() => `hsl(${Math.random() * 360}, 70%, 80%)`);
     setRandomColors(colors);
   }, []);
   
   const handleCopy = (char: string) => {
-    // This URL is a placeholder. It can be used to generate a real image URL later.
-    const url = `https://avatar.placeholder.com/${encodeURIComponent(char)}`;
+    const url = `${window.location.origin}/avatar/${encodeURIComponent(char)}`;
     navigator.clipboard.writeText(url);
     toast({
       title: (
@@ -44,7 +32,7 @@ export default function AvatarGrid() {
 
   return (
     <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-4">
-      {shuffledChars.map((char, index) => (
+      {characters.map((char, index) => (
         <div
           key={char}
           className="group relative aspect-square opacity-0 animate-fade-in cursor-pointer flex items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-105"
