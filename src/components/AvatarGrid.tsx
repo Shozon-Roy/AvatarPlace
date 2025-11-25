@@ -20,9 +20,9 @@ const AvatarGroup = ({ title, characters, colors }: { title: string, characters:
               backgroundColor: colors[char] || '#e0e0e0'
             }}
           >
-            <span className="text-4xl font-bold text-background/80 transition-opacity duration-300 group-hover:opacity-0">{char}</span>
+            <span className="text-5xl font-bold text-background/80 transition-opacity duration-300 group-hover:opacity-0">{char}</span>
             <div className="absolute inset-0 bg-black/60 flex items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="text-white text-5xl font-bold drop-shadow-lg">{char}</span>
+              <span className="text-white text-6xl font-bold drop-shadow-lg">{char}</span>
             </div>
           </div>
         </Link>
