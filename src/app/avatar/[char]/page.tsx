@@ -13,7 +13,7 @@ export default function AvatarPage({ params, searchParams }: { params: { char: s
   const bgColor = searchParams.bg || getRandomColor();
   const svgDataUri = `data:image/svg+xml;base64,${btoa(`
     <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-      <rect width="512" height="512" fill="${decodeURIComponent(bgColor as string)}"/>
+      <rect width="512" height="512" fill="${bgColor as string}"/>
       <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="256" font-family="Inter, sans-serif" font-weight="800" fill="#27272a">${decodedChar}</text>
     </svg>
   `)}`;
@@ -33,7 +33,7 @@ export default function AvatarPage({ params, searchParams }: { params: { char: s
         </Button>
         <div 
           className="relative aspect-square w-full flex items-center justify-center rounded-2xl shadow-lg"
-          style={{ backgroundColor: decodeURIComponent(bgColor as string) }}
+          style={{ backgroundColor: bgColor as string }}
         >
           <img src={svgDataUri} alt={`Avatar for ${decodedChar}`} className="rounded-2xl" />
         </div>
