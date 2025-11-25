@@ -19,7 +19,7 @@ export default function AvatarPage({ params, searchParams }: { params: { char: s
       <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="256" font-family="Inter, sans-serif" font-weight="800" fill="#27272a">${decodedChar}</text>
     </svg>
   `;
-  const svgDataUri = `data:image/svg+xml;base64,${btoa(svgData)}`;
+  const svgDataUri = `data:image/svg+xml;base64,${Buffer.from(svgData).toString('base64')}`;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
@@ -31,6 +31,7 @@ export default function AvatarPage({ params, searchParams }: { params: { char: s
             </Link>
         </Button>
         <AvatarDisplay 
+          svgData={svgData}
           svgDataUri={svgDataUri}
           decodedChar={decodedChar}
           bgColor={bgColor as string}
