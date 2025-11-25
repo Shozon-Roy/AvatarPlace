@@ -3,15 +3,15 @@
 import { ai } from "@/ai/genkit";
 import { z } from "zod";
 
-export const SvgToPngInputSchema = z.object({
+const SvgToPngInputSchema = z.object({
     svg: z.string().describe("The SVG string to convert to PNG."),
 });
-export type SvgToPngInput = z.infer<typeof SvgToPngInputSchema>;
+type SvgToPngInput = z.infer<typeof SvgToPngInputSchema>;
 
-export const SvgToPngOutputSchema = z.object({
+const SvgToPngOutputSchema = z.object({
     pngDataUri: z.string().describe("The converted PNG image as a data URI."),
 });
-export type SvgToPngOutput = z.infer<typeof SvgToPngOutputSchema>;
+type SvgToPngOutput = z.infer<typeof SvgToPngOutputSchema>;
 
 export async function convertSvgToPng(input: SvgToPngInput): Promise<SvgToPngOutput> {
     const { svg } = input;
