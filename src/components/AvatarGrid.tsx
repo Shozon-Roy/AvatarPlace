@@ -1,6 +1,5 @@
 "use client";
 
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { Check } from 'lucide-react';
@@ -18,15 +17,19 @@ function shuffleArray<T>(array: T[]): T[] {
 
 export default function AvatarGrid() {
   const [shuffledChars, setShuffledChars] = useState<string[]>([]);
+  const [randomColors, setRandomColors] = useState<string[]>([]);
   const { toast } = useToast();
 
   useEffect(() => {
     // This check ensures this code only runs on the client
     setShuffledChars(shuffleArray(characters));
+    const colors = characters.map(() => `hsl(${Math.random() * 360}, 70%, 80%)`);
+    setRandomColors(colors);
   }, []);
   
   const handleCopy = (char: string) => {
-    const url = `https://picsum.photos/seed/${encodeURIComponent(char)}/200/200`;
+    // This URL is a placeholder. It can be used to generate a real image URL later.
+    const url = `https://avatar.placeholder.com/${encodeURIComponent(char)}`;
     navigator.clipboard.writeText(url);
     toast({
       title: (
@@ -44,18 +47,14 @@ export default function AvatarGrid() {
       {shuffledChars.map((char, index) => (
         <div
           key={char}
-          className="group relative aspect-square opacity-0 animate-fade-in cursor-pointer"
-          style={{ animationDelay: `${index * 20}ms` }}
+          className="group relative aspect-square opacity-0 animate-fade-in cursor-pointer flex items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-105"
+          style={{ 
+            animationDelay: `${index * 20}ms`,
+            backgroundColor: randomColors[index] || '#e0e0e0'
+          }}
           onClick={() => handleCopy(char)}
         >
-          <Image
-            src={`https://picsum.photos/seed/${encodeURIComponent(char)}/200/200`}
-            alt={`Avatar for character ${char}`}
-            width={200}
-            height={200}
-            className="rounded-lg object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-            unoptimized
-          />
+          <span className="text-4xl font-bold text-gray-800 transition-opacity duration-300 group-hover:opacity-0">{char}</span>
           <div className="absolute inset-0 bg-black/60 flex items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <span className="text-white text-5xl font-bold drop-shadow-lg">{char}</span>
           </div>
