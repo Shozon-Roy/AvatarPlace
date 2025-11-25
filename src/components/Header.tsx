@@ -10,7 +10,7 @@ export default function Header() {
       <nav className="container mx-auto flex items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-foreground hover:text-primary transition-colors">
           <Camera className="h-6 w-6 text-primary" />
-          <span>AvatarPlace</span>
+          <span>Placehold</span>
         </Link>
         <div className="flex items-center gap-2">
           <ThemeSwitcher />

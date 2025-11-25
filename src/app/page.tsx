@@ -49,7 +49,7 @@ export default function Home() {
       </main>
       <footer className="py-6 bg-secondary/50 border-t">
         <div className="container mx-auto text-center text-muted-foreground text-sm">
-          <p>&copy; {new Date().getFullYear()} AvatarPlace. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Placehold. All rights reserved.</p>
           <p>Developed By Shozon Roy</p>
         </div>
       </footer>
