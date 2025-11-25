@@ -9,8 +9,8 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-1">
-        <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 bg-gradient-to-b from-background to-card">
-          <h1 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-primary">
+        <section className="flex flex-col items-center justify-center text-center px-4 py-32 md:py-40 bg-gradient-to-b from-background via-blue-50/20 to-background">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground">
             Your Perfect Avatar Awaits
           </h1>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -23,7 +23,7 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="shadow-lg transform hover:scale-105 transition-transform">
+            <Button asChild size="lg" variant="outline" className="bg-background shadow-lg transform hover:scale-105 transition-transform">
               <Link href="/generate">
                  Create Your Own
                 <Wand2 className="ml-2 h-5 w-5" />
@@ -32,10 +32,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="avatars" className="py-20 md:py-28 bg-card">
+        <section id="avatars" className="py-20 md:py-28 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tight text-primary">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
                 The Avatar Collection
               </h2>
               <p className="mt-3 text-lg text-muted-foreground max-w-3xl mx-auto flex items-center justify-center gap-2">
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="py-6 bg-background border-t">
+      <footer className="py-6 bg-secondary/50 border-t">
         <div className="container mx-auto text-center text-muted-foreground text-sm">
           <p>&copy; {new Date().getFullYear()} AvatarPlace. All rights reserved.</p>
         </div>
