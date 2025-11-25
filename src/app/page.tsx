@@ -20,7 +20,7 @@ export default function Home() {
               Your Perfect Avatar Awaits
             </h1>
             <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Explore a universe of unique avatars, generated from every letter and number. Your new profile picture is just a click away.
+              Placehold is a simple, fast and free image placeholder service to generate SVG, PNG, JPEG, GIF, WebP and AVIF placeholder images for your project.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transform hover:scale-105 transition-transform">
