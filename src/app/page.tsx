@@ -20,7 +20,7 @@ export default function Home() {
               Your Perfect Avatar Awaits
             </h1>
             <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Placehold is a simple, fast and free image placeholder service to generate SVG, PNG, JPEG, GIF, WebP and AVIF placeholder images for your project.
+              AvatarPlace is a simple, fast and free image placeholder service to generate SVG, PNG, JPEG, GIF, WebP and AVIF placeholder images for your project.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transform hover:scale-105 transition-transform">
@@ -49,7 +49,7 @@ export default function Home() {
       </main>
       <footer className="py-6 bg-secondary/50 border-t">
         <div className="container mx-auto text-center text-muted-foreground text-sm">
-          <p>&copy; {new Date().getFullYear()} Placehold. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} AvatarPlace. All rights reserved.</p>
           <p>Developed By Shozon Roy</p>
         </div>
       </footer>

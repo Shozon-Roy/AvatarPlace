@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
-  title: 'Placehold',
+  title: 'AvatarPlace',
   description: 'Generate beautiful and unique avatars for your profile.',
 };
 
