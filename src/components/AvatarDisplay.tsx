@@ -1,15 +1,22 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Download, Link as LinkIcon, RefreshCw, Loader2, Image as ImageIcon } from 'lucide-react';
+import { Download, Link as LinkIcon, RefreshCw, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { convertSvgToPng } from '@/ai/flows/convert-svg-to-png';
 import { useToast } from "@/hooks/use-toast";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export default function AvatarDisplay({ svgData, svgDataUri, decodedChar, bgColor, char }: { svgData: string, svgDataUri: string, decodedChar: string, bgColor: string, char: string }) {
   const [currentUrl, setCurrentUrl] = useState('');
-  const [isGenerating, setIsGenerating] = useState(false);
+  const [isGeneratingPng, setIsGeneratingPng] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -17,7 +24,7 @@ export default function AvatarDisplay({ svgData, svgDataUri, decodedChar, bgColo
   }, []);
 
   const handleGeneratePng = async () => {
-    setIsGenerating(true);
+    setIsGeneratingPng(true);
     try {
       const result = await convertSvgToPng({ svg: svgData });
       const link = document.createElement('a');
@@ -34,7 +41,7 @@ export default function AvatarDisplay({ svgData, svgDataUri, decodedChar, bgColo
         description: "Could not generate the PNG. Please try again.",
       });
     } finally {
-      setIsGenerating(false);
+      setIsGeneratingPng(false);
     }
   };
 
@@ -46,27 +53,36 @@ export default function AvatarDisplay({ svgData, svgDataUri, decodedChar, bgColo
       >
         <img src={svgDataUri} alt={`Avatar for ${decodedChar}`} className="rounded-2xl" />
       </div>
-      <div className="mt-6 flex flex-col gap-4">
+      <div className="mt-6 grid grid-cols-1 gap-4">
           <Button asChild size="lg">
               <Link href={`/avatar/${encodeURIComponent(char)}`}>
                   <RefreshCw className="mr-2 h-5 w-5" />
                   Change Background
               </Link>
           </Button>
-          <Button size="lg" variant="secondary" onClick={handleGeneratePng} disabled={isGenerating}>
-            {isGenerating ? (
-              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            ) : (
-              <ImageIcon className="mr-2 h-5 w-5" />
-            )}
-            Generate PNG
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-              <a href={svgDataUri} download={`${decodedChar}-avatar.svg`}>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button size="lg" variant="secondary" disabled={isGeneratingPng}>
+                {isGeneratingPng ? (
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                ) : (
                   <Download className="mr-2 h-5 w-5" />
-                  Download SVG
-              </a>
-          </Button>
+                )}
+                Download
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-full">
+              <DropdownMenuItem onClick={handleGeneratePng}>
+                Download as PNG
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href={svgDataUri} download={`${decodedChar}-avatar.svg`}>
+                  Download as SVG
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <div className="relative">
               <input
