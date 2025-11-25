@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import AvatarGrid from "@/components/AvatarGrid";
-import { ArrowRight, Copy } from "lucide-react";
+import { ArrowRight, Wand2 } from "lucide-react";
 
 export default function Home() {
   return (
@@ -16,12 +16,20 @@ export default function Home() {
           <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Explore a universe of unique avatars, generated from every letter and number. Your new profile picture is just a click away.
           </p>
-          <Button asChild size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transform hover:scale-105 transition-transform">
-            <Link href="#avatars">
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transform hover:scale-105 transition-transform">
+              <Link href="#avatars">
+                Explore Collection
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="shadow-lg transform hover:scale-105 transition-transform">
+              <Link href="/generate">
+                 Create Your Own
+                <Wand2 className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
         </section>
 
         <section id="avatars" className="py-20 md:py-28 bg-card">
@@ -31,7 +39,7 @@ export default function Home() {
                 The Avatar Collection
               </h2>
               <p className="mt-3 text-lg text-muted-foreground max-w-3xl mx-auto flex items-center justify-center gap-2">
-                Hover to reveal, click to copy the URL. <Copy className="h-4 w-4"/>
+                Click any character to customize and get the URL.
               </p>
             </div>
             <AvatarGrid />
