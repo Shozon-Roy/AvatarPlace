@@ -25,7 +25,6 @@ export default function Header() {
               <nav className="grid gap-6 text-lg font-medium mt-10">
                 <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                 <Link href="/#avatars" className="hover:text-primary transition-colors">Collection</Link>
-                <Link href="/generate" className="hover:text-primary transition-colors">AI Generator</Link>
               </nav>
             </SheetContent>
           </Sheet>
@@ -33,11 +32,6 @@ export default function Header() {
             <Button asChild variant="ghost">
               <Link href="/#avatars">
                 Collection
-              </Link>
-            </Button>
-            <Button asChild variant="ghost">
-              <Link href="/generate">
-                AI Generator
               </Link>
             </Button>
           </div>

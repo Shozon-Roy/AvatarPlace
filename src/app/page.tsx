@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import AvatarGrid from "@/components/AvatarGrid";
-import { ArrowRight, Wand2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -21,12 +21,6 @@ export default function Home() {
               <Link href="#avatars">
                 Explore Collection
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="bg-background shadow-lg transform hover:scale-105 transition-transform">
-              <Link href="/generate">
-                 Create Your Own
-                <Wand2 className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
