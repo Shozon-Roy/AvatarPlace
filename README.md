@@ -6,7 +6,7 @@
 
 ➡️ **Live Demo:** [https://avatarplace.vercel.app/](https://avatarplace.vercel.app/)
 
-![Screenshot of the AvatarPlace website](https://placehold.co/800x400/EFEFEF/333333?text=AvatarPlace+Demo)
+![Screenshot of the AvatarPlace website](https://api.urlbox.io/v1/ca482d7e-9417-4569-90fe-80f7c5e1c781/defe81bb8c763515eb07ca1ac1b2347bdfae116f2954d7b49b4dbc037d57e4a2/png?url=https%3A%2F%2Favatarplace.vercel.app%2F&width=1440&height=1028&hide_cookie_banners=true)
 
 *(Tip: Replace the placeholder image above with a real screenshot of your app!)*
 
